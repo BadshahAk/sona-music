@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sona x Music – Indian Music Bot Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f3d0f, #071807); /* Green-black gradient */
+      font-family: 'Poppins', sans-serif;
+      color: #f9f1e7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "🪕🎶🎻";
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      font-size: 180px;
+      color: rgba(255, 255, 255, 0.05);
+      transform: translateX(-50%) rotate(15deg);
+      user-select: none;
+      pointer-events: none;
+      font-family: monospace;
+    }
+
+    /* Snowfall Effect */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://i.ibb.co/0j1Y0dT/snowfall.gif');
+      background-size: cover;
+      opacity: 0.3;
+      z-index: 1;
+      mix-blend-mode: screen;
+    }
+
+    .card {
+      position: relative;
+      background: #3e1f35cc;
+      border-radius: 28px;
+      box-shadow:
+        0 12px 40px rgba(255, 190, 48, 0.8),
+        inset 0 0 40px rgba(4, 139, 140, 0.4);
+      padding: 48px 40px 60px 40px;
+      max-width: 700px;
+      width: 100%;
+      color: #f9f1e7;
+      z-index: 10;
+      overflow: hidden;
+      border: 3px solid #f4c430;
+      backdrop-filter: saturate(180%) blur(12px);
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: 3.8rem;
+      color: #f4c430;
+      margin-bottom: 12px;
+      letter-spacing: 1.8px;
+      position: relative;
+      user-select: none;
+    }
+    h1::before {
+      content: "♪";
+      position: absolute;
+      left: -38px;
+      top: 8px;
+      font-size: 3.2rem;
+      color: #04a9a9;
+      text-shadow: 0 0 6px #04a9a9aa;
+      user-select: none;
+      transform: rotate(-10deg);
+    }
+
+    p {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #e1d9ca;
+      user-select: text;
+      text-shadow: 0 0 4px #520c56aa;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.9rem;
+      color: #04a9a9;
+      margin-top: 50px;
+      margin-bottom: 25px;
+      letter-spacing: 1.3px;
+      text-shadow: 0 0 6px #04a9a9cc;
+      user-select: none;
+    }
+
+    .cmd {
+      background: #662c4e;
+      border-left: 5px solid #f4c430;
+      padding: 18px 22px;
+      margin: 14px 0;
+      border-radius: 16px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #ffeadb;
+      box-shadow: 0 0 12px #f4c430aa;
+      cursor: default;
+      user-select: none;
+      letter-spacing: 0.25px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .cmd:hover {
+      background: #7c3b64;
+      box-shadow: 0 0 18px #04a9a9ee, 0 0 30px #f4c430dd;
+      border-left-color: #04a9a9;
+      color: #d6fff6;
+    }
+
+    .btn {
+      margin-top: 50px;
+      padding: 18px 52px;
+      font-size: 19px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      border-radius: 40px;
+      background: linear-gradient(45deg, #f4c430, #04a9a9);
+      color: #3e1f35cc;
+      text-decoration: none;
+      box-shadow: 0 0 18px #f4c430, 0 0 45px #04a9a9;
+      display: inline-block;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.3s ease;
+      letter-spacing: 1.3px;
+      user-select: none;
+      position: relative;
+    }
+    .btn:hover {
+      background: linear-gradient(45deg, #e0b020, #028d8d);
+      box-shadow: 0 0 30px #d6aa15, 0 0 65px #02a9a9;
+      color: #1a0a20cc;
+    }
+
+    .usage p {
+      margin: 8px 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.4px;
+      color: #d8cec2cc;
+      text-shadow: 0 0 2px #2b0012cc;
+    }
+
+    .music-icons {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: #f4c430;
+      user-select: none;
+      filter: drop-shadow(0 0 6px #04a9a9);
+      pointer-events: none;
+    }
+    .music-icons span {
+      margin-left: 12px;
+      animation: floatMusic 3.5s ease-in-out infinite;
+      display: inline-block;
+    }
+    .music-icons span:nth-child(2) {
+      animation-delay: 1.4s;
+      color: #04a9a9;
+    }
+    .music-icons span:nth-child(3) {
+      animation-delay: 2.9s;
+      color: #d4a010;
+    }
+    @keyframes floatMusic {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-10px);}
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 35px 25px 45px 25px;
+      }
+      h1 {
+        font-size: 2.7rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .cmd {
+        font-size: 15px;
+        padding: 14px 18px;
+      }
+      .btn {
+        font-size: 16px;
+        padding: 14px 36px;
+      }
+      .music-icons {
+        font-size: 24px;
+        right: 20px;
+        bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-label="Sona x Music Command Guide">
+    <h1>Welcome to Sona x Music</h1>
+    <p>24/7 Music Bot for Telegram Groups – Crafted by <strong>@KALAKAAR5</strong></p>
+
+    <h2>Available Commands</h2>
+
+    <div class="cmd">/start – ✨ Start the bot and view welcome info</div>
+    <div class="cmd">/help – 📘 View all commands and usage guide</div>
+    <div class="cmd">/play [name/link] – ▶️ Play song by title or YouTube link</div>
+    <div class="cmd">/pause – ⏸ Pause current music</div>
+    <div class="cmd">/resume – 🔄 Resume paused song</div>
+    <div class="cmd">/skip – ⏭ Skip to next track in queue</div>
+    <div class="cmd">/end – ❌ Stop music and clear queue</div>
+    <div class="cmd">/queue – 📜 View current song queue</div>
+    <div class="cmd">/lyrics [song name] – 📝 Get lyrics of a track</div>
+    <div class="cmd">/song [name] – 🎧 Download a song by name</div>
+    <div class="cmd">/ping – 📶 Check bot status & response time</div>
+    <div class="cmd">/id – 🆔 Get your Telegram ID or group ID</div>
+
+    <h2>How to Use</h2>
+    <div class="usage">
+      <p>➤ Just add Sona x Music to your group and make it admin.</p>
+      <p>➤ Use <strong>/play</strong> followed by a song name or link.</p>
+      <p>➤ Control playback using the command menu or buttons!</p>
+    </div>
+
+    <a class="btn" href="https://t.me/SONAA_MUSIC_BOT" target="_blank" rel="noopener noreferrer" aria-label="Launch Sona x Music Telegram Bot">Launch Sona x Music</a>
+
+    <div class="music-icons" aria-hidden="true">
+      <span>🎶</span>
+      <span>🪕</span>
+      <span>🎻</span>
+    </div>
+  </div>
+</body>
+</html>
